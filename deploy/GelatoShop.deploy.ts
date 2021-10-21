@@ -22,7 +22,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   await deploy("GelatoShop", {
     from: deployer,
-    args: ['0xc1C6805B857Bef1f412519C4A842522431aFed39', 20, 10]
+    args: [addresses.PokeMe, 20, 10]
   });
 };
 
