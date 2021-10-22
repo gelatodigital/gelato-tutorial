@@ -25,7 +25,6 @@ contract GelatoShop is ERC721Enumerable, Ownable {
 
     mapping(uint256 => uint256) public licks;
     mapping(uint256 => uint256) public lickBlock;
-    mapping(address => bool) public isMinter;
 
     modifier onlyPokeMe() {
         require(msg.sender == pokeMe, 'only pokeMe');
@@ -40,9 +39,7 @@ contract GelatoShop is ERC721Enumerable, Ownable {
     }
 
     function mint(address user_) external onlyOwner {
-        require(!isMinter[user_], 'cannot mint twice');
         uint256 nextTokenId = totalSupply() + 1;
-        isMinter[user_] = true;
         lickBlock[nextTokenId] = block.number;
         _safeMint(user_, nextTokenId);
     }
