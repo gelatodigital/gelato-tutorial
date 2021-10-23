@@ -22,8 +22,8 @@ interface Addresses {
       case "goerli":
         return {
           PokeMe: '0xc1C6805B857Bef1f412519C4A842522431aFed39',
-          GelatoShop: '0x249e7CE767e213D898B8de99024F0b08b1C42940',
-          GelatoCredits: '0x34Ab6024C3e84684F99D6f2904Af490e5B8122b6'
+          GelatoShop: '0x798D01b2b31Ad9439Ff07335CfcbC05B1009cBDe',
+          GelatoCredits: '0x5BC6722ff0341A19E3d6364683bF3ab53828BFBF'
         };
       default:
         throw new Error(`No addresses for Network: ${network}`);
