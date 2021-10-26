@@ -1,1 +1,1 @@
-# Gelato Shop NFT
+# Geatlo Tutorial with an IceCreamNFT

@@ -22,7 +22,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   await deploy("GelatoTutorial", {
     from: deployer,
-    args: [addresses.GelatoShop, addresses.GelatoCredits]
+    args: [addresses.IceCreamNFT, addresses.GelatoCredits]
   });
 };
 

@@ -6,7 +6,7 @@
 describe("Basic SC test", function () {
   this.timeout(0);
 
-  it("test GelatoShop", async () => {
+  it("test IceCreamNFT", async () => {
     console.log("skip");
   });
 });

@@ -10,26 +10,29 @@ import "./Base64.sol";
 
 
 // solhint-disable
-contract GelatoShop is ERC721Enumerable, Ownable {
+contract IceCreamNFT is ERC721Enumerable, Ownable {
     address public immutable pokeMe;
     uint256 public immutable blockThreshold;
 
     mapping(uint256 => uint256) public licks;
     mapping(uint256 => uint256) public lickBlock;
+    mapping(address => bool) public hasClaimed;
 
     modifier onlyPokeMe() {
         require(msg.sender == pokeMe, 'only pokeMe');
         _;
     }
 
-    constructor(address pokeMe_, uint256 blockThreshold_) ERC721("Gelato Shop", "CONE") {
+    constructor(address pokeMe_, uint256 blockThreshold_) ERC721("Gelato Tutorial", "CONE") {
         pokeMe = pokeMe_;
         blockThreshold = blockThreshold_;
     }
 
     function mint(address user_) external onlyOwner {
+        require(!hasClaimed[user_], "already claimed");
         uint256 nextTokenId = totalSupply() + 1;
         lickBlock[nextTokenId] = block.number;
+        hasClaimed[user_] = true;
         _safeMint(user_, nextTokenId);
     }
 

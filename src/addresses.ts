@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 interface Addresses {
     PokeMe: string;
-    GelatoShop: string;
+    IceCreamNFT: string;
     GelatoCredits: string;
   }
   
@@ -10,19 +10,19 @@ interface Addresses {
       case "mainnet":
         return {
             PokeMe: '',
-            GelatoShop: '',
+            IceCreamNFT: '',
             GelatoCredits: ''
           };
       case "ropsten":
         return {
           PokeMe: '',
-          GelatoShop: '',
+          IceCreamNFT: '',
           GelatoCredits: ''
         };
       case "goerli":
         return {
           PokeMe: '0xc1C6805B857Bef1f412519C4A842522431aFed39',
-          GelatoShop: '0x798D01b2b31Ad9439Ff07335CfcbC05B1009cBDe',
+          IceCreamNFT: '0x02386322Ce32020817b57D8843e733c78a8C4Caa',
           GelatoCredits: '0x5BC6722ff0341A19E3d6364683bF3ab53828BFBF'
         };
       default:

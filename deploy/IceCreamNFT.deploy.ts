@@ -11,7 +11,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
     hre.network.name === "goerli"
   ) {
     console.log(
-      `!! Deploying GelatoShop to mainnet/testnet. Hit ctrl + c to abort`
+      `!! Deploying IceCreamNFT to mainnet/testnet. Hit ctrl + c to abort`
     );
     await new Promise((r) => setTimeout(r, 20000));
   }
@@ -20,9 +20,9 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const { deployer } = await getNamedAccounts();
   const addresses = getAddresses(hre.network.name);
 
-  await deploy("GelatoShop", {
+  await deploy("IceCreamNFT", {
     from: deployer,
-    args: [addresses.PokeMe, 20]
+    args: [addresses.PokeMe, 5]
   });
 };
 
@@ -35,6 +35,6 @@ func.skip = async (hre: HardhatRuntimeEnvironment) => {
   return shouldSkip ? true : false;
 };
 
-func.tags = ["GelatoShop"];
+func.tags = ["IceCreamNFT"];
 
 export default func;
