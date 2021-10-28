@@ -6,11 +6,12 @@ import {
     ERC721Enumerable
 } from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {Pausable} from "@openzeppelin/contracts/security/Pausable.sol";
 import "./Base64.sol";
 
 
 // solhint-disable
-contract IceCreamNFT is ERC721Enumerable, Ownable {
+contract IceCreamNFT is ERC721Enumerable, Ownable, Pausable {
     address public immutable pokeMe;
     uint256 public immutable blockThreshold;
 
@@ -23,17 +24,25 @@ contract IceCreamNFT is ERC721Enumerable, Ownable {
         _;
     }
 
-    constructor(address pokeMe_, uint256 blockThreshold_) ERC721("Gelato Tutorial", "CONE") {
+    constructor(address pokeMe_, uint256 blockThreshold_) ERC721("Gelato Lick", "CONE") {
         pokeMe = pokeMe_;
         blockThreshold = blockThreshold_;
     }
 
-    function mint(address user_) external onlyOwner {
-        require(!hasClaimed[user_], "already claimed");
+    function pause() external onlyOwner {
+        _pause();
+    }
+
+    function unpause() external onlyOwner {
+        _unpause();
+    }
+
+    function mint() external {
+        require(!hasClaimed[msg.sender], "already claimed");
         uint256 nextTokenId = totalSupply() + 1;
         lickBlock[nextTokenId] = block.number;
-        hasClaimed[user_] = true;
-        _safeMint(user_, nextTokenId);
+        hasClaimed[msg.sender] = true;
+        _safeMint(msg.sender, nextTokenId);
     }
 
     function lick(uint256 tokenId_) external onlyPokeMe {
