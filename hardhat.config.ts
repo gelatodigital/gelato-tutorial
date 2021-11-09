@@ -10,10 +10,9 @@ import "hardhat-deploy";
 import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname + "/.env" });
 
-const PK = process.env.PK;
 const PK_MAINNET = process.env.PK_MAINNET;
 const ALCHEMY_ID = process.env.ALCHEMY_ID;
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_FANTOM_API;
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -29,11 +28,11 @@ const config: HardhatUserConfig = {
     hardhat: {
       forking: {
         url: `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_ID}`,
-        blockNumber: 5517628
-      }
+        blockNumber: 5517628,
+      },
     },
     goerli: {
-      accounts: PK ? [PK] : [],
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
       chainId: 5,
       url: `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
@@ -41,6 +40,26 @@ const config: HardhatUserConfig = {
       accounts: PK_MAINNET ? [PK_MAINNET] : [],
       chainId: 1,
       url: `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_ID}`,
+    },
+    matic: {
+      url: `https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_ID}`,
+      chainId: 137,
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
+    },
+    rinkeby: {
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
+      chainId: 4,
+      url: `https://eth-rinkeby.alchemyapi.io/v2/${ALCHEMY_ID}`,
+    },
+    ropsten: {
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
+      chainId: 3,
+      url: `https://eth-ropsten.alchemyapi.io/v2/${ALCHEMY_ID}`,
+    },
+    fantom: {
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
+      chainId: 250,
+      url: `https://rpcapi.fantom.network/`,
     },
   },
 
