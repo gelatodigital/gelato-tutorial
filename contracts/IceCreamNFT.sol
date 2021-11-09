@@ -58,7 +58,7 @@ contract IceCreamNFT is ERC721Enumerable, Ownable, Pausable {
         string[3] memory parts;
         parts[0] = _getView(numLicks);
         parts[1] = uint2str(numLicks);
-        parts[2] = "</text></svg>";
+        parts[2] = '</text></svg>';
 
         string memory output = string(
             abi.encodePacked(parts[0], parts[1], parts[2])
@@ -78,7 +78,7 @@ contract IceCreamNFT is ERC721Enumerable, Ownable, Pausable {
             )
         );
         output = string(
-            abi.encodePacked("data:application/json;base64,", json)
+            abi.encodePacked('data:application/json;base64,', json)
         );
 
         return output;

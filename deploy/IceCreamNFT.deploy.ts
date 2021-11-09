@@ -15,7 +15,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   await deploy("IceCreamNFT", {
     from: deployer,
-    args: [240], // 4 min
+    args: [180], // 3 min
   });
 };
 
