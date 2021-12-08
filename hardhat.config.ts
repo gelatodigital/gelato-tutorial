@@ -12,7 +12,7 @@ dotenv.config({ path: __dirname + "/.env" });
 
 const PK_MAINNET = process.env.PK_MAINNET;
 const ALCHEMY_ID = process.env.ALCHEMY_ID;
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_ARBITRUM_API;
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_BSC_API;
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -65,6 +65,16 @@ const config: HardhatUserConfig = {
       accounts: PK_MAINNET ? [PK_MAINNET] : [],
       chainId: 42161,
       url: `https://arb1.arbitrum.io/rpc`,
+    },
+    avalanche: {
+      url: "https://api.avax.network/ext/bc/C/rpc",
+      chainId: 43114,
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
+    },
+    bsc: {
+      url: "https://bsc-dataseed.binance.org/",
+      chainId: 56,
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
     },
   },
 
