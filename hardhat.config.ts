@@ -12,7 +12,7 @@ dotenv.config({ path: __dirname + "/.env" });
 
 const PK_MAINNET = process.env.PK_MAINNET;
 const ALCHEMY_ID = process.env.ALCHEMY_ID;
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_BSC_API;
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -74,6 +74,11 @@ const config: HardhatUserConfig = {
     bsc: {
       url: "https://bsc-dataseed.binance.org/",
       chainId: 56,
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
+    },
+    gnosis: {
+      url: "https://rpc.gnosischain.com",
+      chainId: 100,
       accounts: PK_MAINNET ? [PK_MAINNET] : [],
     },
   },
