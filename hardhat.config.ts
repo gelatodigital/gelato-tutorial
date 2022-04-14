@@ -81,6 +81,10 @@ const config: HardhatUserConfig = {
       chainId: 100,
       accounts: PK_MAINNET ? [PK_MAINNET] : [],
     },
+    mumbai: {
+      url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_ID}`,
+      accounts: PK_MAINNET ? [PK_MAINNET] : [],
+    },
   },
 
   etherscan: {
